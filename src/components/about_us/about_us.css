@@ -1,0 +1,22 @@
+
+.aboutus {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-right: 100px;
+}
+
+.aboutus.field {
+  margin-bottom: 10px;
+}
+
+.content {
+  color: black;
+  display: flex;
+  text-align: justify;
+  flex-direction: column;
+  /* margin-bottom: 30px; */
+  position: relative;
+  margin-top: -3vh;
+}
+

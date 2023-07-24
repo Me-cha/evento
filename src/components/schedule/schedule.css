@@ -1,0 +1,61 @@
+.schBody{
+  padding-top: 15vh;
+}
+.sch_box {
+  border: 1.5px solid rgb(0, 0, 0);
+  position: absolute;
+  width: 97%;
+  height: 50px;
+  left: 10px;
+  top: 120px;
+
+  font-family: "Outfit";
+  font-style: normal;
+  font-size: 30px;
+  line-height: 0px;
+  text-align: center;
+  background: #ffffff;
+}
+.img_dis img:hover{
+  transform: scale(1.02);
+}
+
+/* event IMGAGE upload */
+.sch_img{
+  color: transparent;
+}
+.sch_img::-webkit-file-upload-button{
+  visibility: hidden;
+}
+.sch_img::before {
+  content: '+';
+  position: relative;
+  text-align: center;
+  color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #999;
+  border-radius: 10px;
+  padding: 8px 8px;
+  outline: none;
+  white-space: nowrap;
+  user-select: none;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 12pt;
+  height: 2vh;
+  width: 1vw;
+  background-color: #E3CAF9;
+  margin: 10vh 0vh 0vh 5.75vw;
+  
+}
+.sch_img:hover::before {
+  border-color: #000000;
+}
+.sch_img:active::before {
+  background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+}
+
