@@ -18,6 +18,8 @@ import {
   list,
 } from "firebase/storage";
 import { v4 } from "uuid";
+import Header from '../header/header';
+
 
 const EventInput = () => {
   const [eventName, setEventName] = useState("");
@@ -75,6 +77,9 @@ const EventInput = () => {
 
   return (
     <div style={{width:"100vw",height:"auto"}}>
+      <div className="header">
+        <Header />
+      </div>
       <div className="box">
         <p style={{ marginTop:"4vh"}}>EVENTS</p>
       </div>
