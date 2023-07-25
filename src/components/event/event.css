@@ -35,19 +35,19 @@
   color: #000000;
   display: inline-block;
   border: 1px solid #999;
-  border-radius: 5px;
-  padding: 5px 8px;
+  border-radius: 5px !important;
+  padding: 5px 8px !important;
   outline: none;
   white-space: nowrap;
   user-select: none;
   cursor: pointer;
   text-shadow: 1px 1px #fff;
-  font-weight: 300;
-  font-size: 10pt;
-  height: 27px;
+  font-weight: 600 !important;
+  font-size: 20pt;
+  height: 27px !important;
   text-align: center;
   background-color: #E3CAF9;
-  margin-left:5px;
+  margin-left:4px;
 }
 .eventIMG:hover::before {
   border-color: #000000;

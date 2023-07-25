@@ -31,10 +31,10 @@ function App() {
       {/* <LandingPage/> */}
       {/* <AboutUsScreen/> */}
       {/* <Sharebutton /> */}
-      {/* <EventInput /> */}
+      <EventInput />
       {/* <Event_dis/> */}
       {/* <Image /> */}
-      <ProfileScreen/>
+      {/* <ProfileScreen/> */}
       {/* <Schedule /> */}
     </div>
   );

@@ -18,8 +18,7 @@ import {
   list,
 } from "firebase/storage";
 import { v4 } from "uuid";
-import Header from '../header/header';
-
+import Header from "../header/header";
 
 const EventInput = () => {
   const [eventName, setEventName] = useState("");
@@ -76,12 +75,14 @@ const EventInput = () => {
   };
 
   return (
-    <div style={{width:"100vw",height:"100vh",backgroundColor:"#EDE7F1"}}>
+    <div
+      style={{ width: "100vw", height: "100vh", backgroundColor: "#EDE7F1" }}
+    >
       <div className="header">
         <Header />
       </div>
       <div className="box">
-        <p style={{ marginTop:"4vh"}}>EVENTS</p>
+        <p style={{ marginTop: "4vh" }}>EVENTS</p>
       </div>
 
       <div
@@ -90,12 +91,12 @@ const EventInput = () => {
           justifyContent: "space-between",
           flexDirection: "row",
           width: "80vw",
-          margin: "4vh 0vw auto 10vw",
-          position:"relative"
+          margin: "4vh 0vw auto 20vw",
+          position: "relative",
         }}
       >
         <div className="input1">
-          <div style={{ marginLeft: "18%" }}>
+          <div style={{ marginLeft: "1vw" }}>
             {/* EVENT name */}
             <input
               placeholder="Event Name"
@@ -103,7 +104,7 @@ const EventInput = () => {
                 border: "none",
                 background: "#EDE7F1",
                 fontWeight: "bolder",
-                fontSize: "16px",
+                fontSize: "20px",
                 fontFamily: "Roboto",
                 textAlign: "center",
               }}
@@ -156,19 +157,18 @@ const EventInput = () => {
           </div>
         </div>
 
-        <div className="input2">
+        <div className="input2" style={{marginLeft:"20vw"}}>
           <div
             className="img_dis"
             style={{
               display: "flex",
               flexWrap: "wrap",
               height: "30vh",
-              width: "15vw",
-              paddingLeft: "20vw",
+              width: "35vw",
+              paddingLeft: "4vw",
               border: "none",
               alignItems: "center",
-              top:"5vh",
-              left :"-2vw"
+              top: "4vh",
             }}
           >
             {file && (
@@ -196,7 +196,6 @@ const EventInput = () => {
                 height: "30vh",
                 width: "15vw",
                 marginTop: "25vh",
-                width: "30px",
               }}
               onChange={(e) => setFile(e.target.files[0])}
               accept="image/*, video/*"
@@ -250,6 +249,7 @@ const EventInput = () => {
             backgroundColor: "#7B43AC",
             fontFamily: "Roboto",
             fontSize: "23px",
+            fontWeight: "500",
             borderRadius: "10px",
             color: "#FFFFFF",
           }}
