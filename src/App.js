@@ -18,9 +18,6 @@ function App() {
   console.log("trial log");
   return (
     <div className="App">
-      <div className="header">
-        {/* <Header /> */}
-      </div>
       {/* <div className="Authorization">
         <Router>
           <Routes>
@@ -34,7 +31,7 @@ function App() {
       {/* <LandingPage/> */}
       {/* <AboutUsScreen/> */}
       {/* <Sharebutton /> */}
-      {/* <EventInput /> */}
+      <EventInput />
       {/* <Event_dis/> */}
       {/* <Image /> */}
       {/* <ProfileScreen/> */}

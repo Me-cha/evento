@@ -2,6 +2,8 @@ import React from "react";
 import { db } from "../../config/firebase";
 import { useState, useEffect } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
+import Header from '../header/header';
+
 
 function Event_dis() {
   const [imageUrl, setImageUrl] = useState("");
@@ -38,6 +40,9 @@ function Event_dis() {
 
   return (
     <div className="Event_dis">
+      <div className="header">
+        <Header />
+      </div>
       <div className="event_img">
       {imageUrl ? <img src={imageUrl} style={{ width:"20vh",height:"20vh"}}/>: <img src=""/>}
     </div>

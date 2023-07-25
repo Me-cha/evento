@@ -2,6 +2,8 @@ import { db } from "../../config/firebase";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import "./my_profile.css";
+import Header from '../header/header';
+
 
 const ProfileScreen = () => {
   const [firstName, setFirstName] = useState("");
@@ -63,6 +65,9 @@ const ProfileScreen = () => {
 
   return (
     <div className="my_profile" style={{ margin: "25vh auto ",width:"100vw",height:"100vh" }}>
+      <div className="header">
+        <Header />
+      </div>
       <div
         style={{
           display: "flex",

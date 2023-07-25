@@ -17,6 +17,8 @@ import {
   list,
 } from "firebase/storage";
 import { v4 } from "uuid";
+import Header from '../header/header';
+
 
 function Schedule() {
   const [file, setFile] = useState("");
@@ -70,6 +72,9 @@ function Schedule() {
 
   return (
     <div>
+      <div className="header">
+        <Header />
+      </div>
       <div className="sch_box">
         <p style={{ margin: "25px" }}>SCHEDULE</p>
       </div>

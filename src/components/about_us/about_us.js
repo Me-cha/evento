@@ -1,10 +1,14 @@
 import React from 'react';
 import "./about_us.css"
+import Header from '../header/header';
 
 const AboutUsScreen = () => {
 
   return (
     <div className='about_screen' style={{ alignItems:"center" ,width:"100vw",height:"100vh"}}>
+      <div className="header">
+        <Header/>
+      </div>
       <div style={{ display:"flex",flexDirection:"row",alignItems:"center", margin:"20vh 0vh 0vh 10vh" }}>
         <div className="aboutus">
           <h1 style={{ marginTop: "0px", color: "#F00000" }}> About Us </h1>
