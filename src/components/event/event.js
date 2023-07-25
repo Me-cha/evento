@@ -76,7 +76,7 @@ const EventInput = () => {
   };
 
   return (
-    <div style={{width:"100vw",height:"auto"}}>
+    <div style={{width:"100vw",height:"100vh",backgroundColor:"#EDE7F1"}}>
       <div className="header">
         <Header />
       </div>
@@ -242,14 +242,14 @@ const EventInput = () => {
         <button
           onClick={onSubmit}
           style={{
-            margin: "auto",
+            margin: "6vh auto auto auto",
             alignItems: "",
-            width: "130px",
-            height: "40px",
+            width: "150px",
+            height: "50px",
             display: "block",
             backgroundColor: "#7B43AC",
             fontFamily: "Roboto",
-            fontSize: "17px",
+            fontSize: "23px",
             borderRadius: "10px",
             color: "#FFFFFF",
           }}

@@ -34,7 +34,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div style={{ height: "0vh", maxWidth: "100vw", position: "absolute" }}>
+    <div style={{ height: "0vh", maxWidth: "100vw", position: "absolute",fontSize:"25px" }}>
       <div
         style={{
           backgroundColor: "#AF68EF",
@@ -63,7 +63,7 @@ const Header = () => {
           >
            
               <div style={{ marginLeft: "1vw" }}>
-                <h1 style={{ color: "#D82323" }}>EVENTO</h1>
+                <h1 style={{ color: "#D82323",fontSize:"40px",fontWeight:"600" }}>EVENTO</h1>
               </div>
               <nav style={{ display: "flex", marginLeft: "50vw" }}>
                 <ul
