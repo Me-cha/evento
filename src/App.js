@@ -28,10 +28,10 @@ function App() {
         </Router>
       </div> */}
       {/* <Calendar/> */}
-      {/* <LandingPage/> */}
+      <LandingPage/>
       {/* <AboutUsScreen/> */}
       {/* <Sharebutton /> */}
-      <EventInput />
+      {/* <EventInput /> */}
       {/* <Event_dis/> */}
       {/* <Image /> */}
       {/* <ProfileScreen/> */}
