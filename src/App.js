@@ -28,14 +28,14 @@ function App() {
         </Router>
       </div> */}
       {/* <Calendar/> */}
-      <LandingPage/>
+      {/* <LandingPage/> */}
       {/* <AboutUsScreen/> */}
       {/* <Sharebutton /> */}
       {/* <EventInput /> */}
       {/* <Event_dis/> */}
       {/* <Image /> */}
-       <ProfileScreen/>
-      {/* <Schedule /> */}
+       {/* <ProfileScreen/> */}
+      <Schedule />
     </div>
   );
 }
