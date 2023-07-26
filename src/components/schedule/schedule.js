@@ -18,6 +18,7 @@ import {
 } from "firebase/storage";
 import { v4 } from "uuid";
 import Header from '../header/header';
+import { SpaRounded } from "@mui/icons-material";
 
 
 function Schedule() {
@@ -72,7 +73,14 @@ function Schedule() {
 
   return (
     <div>
-      <div className="header">
+      <div className="header"
+      style={{
+        maxWidth: "20vw",
+        height: "10vh",
+        backgroundColor: "#EDE7F1",
+        marginBottom: "20px",
+      }}>
+        
         <Header />
       </div>
       <div className="sch_box">
@@ -150,7 +158,7 @@ function Schedule() {
             style={{
               display: "flex",
               flexDirection: "column",
-              alignItems: "center",
+              alignItems: "space around",
               height: "35vh",
             }}
           >
@@ -200,7 +208,7 @@ function Schedule() {
         </div>
         <div
           className="tb"
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{ display: "flex", justifyContent: "center" , marginTop:"-1%"}}
         >
           <textarea
             placeholder=" Schedule Brief..."
