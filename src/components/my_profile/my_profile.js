@@ -64,8 +64,13 @@ const ProfileScreen = () => {
   };
 
   return (
-    <div className="my_profile" style={{ margin: "25vh auto ",width:"100vw",height:"100vh" }}>
-      <div className="header">
+    <div className="my_profile" style={{ margin: "0vh auto ",width:"100vw",height:"100vh" }}>
+      <div className="header"style={{
+          maxWidth: "100vw",
+          height: "10vh",
+          backgroundColor: "#EDE7F1",
+          marginBottom: "20px",
+        }}>
         <Header />
       </div>
       <div
@@ -80,6 +85,7 @@ const ProfileScreen = () => {
           border: "3px solid",
           color: "#AF68EF",
           borderRadius: "15px",
+          marginTop:"200px"
         }}
       >
         <div
@@ -92,6 +98,7 @@ const ProfileScreen = () => {
             margin: "10px",
             color: "#F00000",
             marginTop: "10px",
+            fontSize:"35px"
           }}
         >
           <h1 style={{ marginTop: "0px" }}> My Profile </h1>

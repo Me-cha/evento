@@ -36,6 +36,11 @@ function App() {
       {/* <Image /> */}
      {/*  <ProfileScreen/> */}
        <Schedule /> 
+      {/* <EventInput /> */}
+      {/* <Event_dis/> */}
+      {/* <Image /> */}
+       {/* <ProfileScreen/> */}
+      {/* <Schedule /> */}
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import Logo from "../LP_Assets/Logo.svg";
 import { BsTwitter } from "react-icons/bs";
 import { SiLinkedin } from "react-icons/si";
 import { BsYoutube } from "react-icons/bs";
@@ -10,7 +9,7 @@ const Footer = () => {
     <div className="footer-wrapper">
       <div className="footer-section-one">
         <div className="footer-logo-container">
-          <img src={Logo} alt="" />
+          <img src="https://firebasestorage.googleapis.com/v0/b/event-o-4e544.appspot.com/o/landingpage%2FLogo.svg?alt=media&token=377ebe24-bc83-4307-a47a-78346999cf2a" alt="" />
         </div>
         <div className="footer-icons">
           <BsTwitter />

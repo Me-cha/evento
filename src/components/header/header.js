@@ -71,6 +71,7 @@ const Header = () => {
                     listStyleType: "none",
                     display: "flex",
                     justifyContent: "center",
+                    fontSize:"23px",
                   }}
                 >
                   <li style={{ margin: "1em" }}>Home</li>
