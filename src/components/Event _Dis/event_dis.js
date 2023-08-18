@@ -93,7 +93,7 @@ function Event_dis() {
                 height: "17vh",
               }}
             >
-              {event.imageUrl && (
+              {event.imageUrl ? (
                 <img
                   src={event.imageUrl}
                   style={{
@@ -107,6 +107,17 @@ function Event_dis() {
                   }}
                   alt="Event"
                 />
+                ) : (
+                  <img
+                    src="https://firebasestorage.googleapis.com/v0/b/event-o-4e544.appspot.com/o/event%2Fdownload.png?alt=media&token=97505771-db30-410d-80af-a6ff564e1066"
+                    style={{ display: "unset",
+                    margin: "auto 2vw",
+                    width: "15vh",
+                    height: "14vh",
+                    border: "1px solid black",
+                    borderRadius: "10px",
+                    objectFit: "fit", }}
+                  />
               )}
               <div
                 style={{
