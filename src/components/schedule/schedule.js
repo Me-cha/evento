@@ -31,7 +31,8 @@ function Schedule() {
   const [notification, setnotification] = useState(false);
   const [description, setdescription] = useState("");
 
-  const Ref = collection(db, "schedule");
+  const eventRef = doc(db, "event", "8OkkhqzX1clf3U0FoZJ5");
+  const scheduleRef = collection(eventRef, "schedule");
 
   useEffect(() => {
     if (imageUrls.length > 0) {
@@ -43,7 +44,7 @@ function Schedule() {
     try {
       const scheduldeStart = new Date(schedulde_start);
       const scheduldeEnd = new Date(schedulde_end);
-      await addDoc(Ref, {
+      await addDoc(scheduleRef, {
         Organizor_image: imageUrls[0],
         schedulde_start: scheduldeStart,
         schedulde_end: scheduldeEnd,
@@ -112,7 +113,8 @@ function Schedule() {
               <input
                 placeholder="SCHEDULE TITLE"
                 style={{
-                  border: "none",
+                  border: "1px solid #E3CAF9",
+                  borderRadius:"10px",
                   background: "#EDE7F1",
                   fontWeight: "bolder",
                   fontSize: "18px",
@@ -122,7 +124,7 @@ function Schedule() {
                 onChange={(e) => setscheduletitle(e.target.value)}
               />
             </div>
-            <div className="img_dis">
+            <div className="sch_img_dis">
               {file && (
                 <img
                   src={URL.createObjectURL(file)}
@@ -134,7 +136,7 @@ function Schedule() {
                     border: "1px solid #7B43AC",
                     borderRadius: "10px",
                     objectFit: "cover",
-                    left: "26.5vw",
+                    marginLeft:"2.5vw"
                   }}
                 />
               )}
@@ -144,9 +146,8 @@ function Schedule() {
                   style={{
                     height: "25vh",
                     width: "14vw",
-                    border: "1px solid #7B43AC",
-                    borderRadius: "10px",
                     objectFit: "cover",
+                    marginLeft:"5vw"
                   }}
                   onChange={(e) => setFile(e.target.files[0])}
                   accept="image/, video/"
@@ -223,6 +224,7 @@ function Schedule() {
               border: "1px solid #000000",
               border_radius: "15px",
               resize: "none",
+              margin:"5vh auto auto auto"
             }}
             onChange={(e) => setdescription(e.target.value)}
           />

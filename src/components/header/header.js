@@ -1,7 +1,7 @@
 import "./header.css";
 import React, { useState, useEffect } from "react";
 import { db } from "../../config/firebase";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs, documentId } from "firebase/firestore";
 
 const Header = () => {
   const [imageUrl, setImageUrl] = useState("");
@@ -12,12 +12,12 @@ const Header = () => {
         const usersCollectionRef = collection(db, "user");
         const usernameQuery = query(
           usersCollectionRef,
-          where("username", "==", "nosh123")
+          where(documentId(), "==", "new_id")
         );
         const querySnapshot = await getDocs(usernameQuery);
         if (!querySnapshot.empty) {
           const userData = querySnapshot.docs[0].data();
-          const imageUrl = userData.profile_image;
+          const imageUrl = userData.profile_pic;
           setImageUrl(imageUrl);
         }
       } catch (error) {
@@ -46,8 +46,7 @@ const Header = () => {
         className="header"
         style={{
           maxWidth: "100vw",
-          height: "10vh",
-          backgroundColor: "#EDE7F1",
+          height: "11vh",
           marginBottom: "20px",
         }}
       >

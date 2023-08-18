@@ -6,6 +6,7 @@
 .App {
   min-width: 100vw;
   min-height: 100vh;
+  background-color: #EDE7F1;
 }
 .Authorization{
   position: relative;

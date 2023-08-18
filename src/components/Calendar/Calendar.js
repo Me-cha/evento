@@ -10,7 +10,7 @@ export default function Calendar() {
 	const [today, setToday] = useState(currentDate);
 	const [selectDate, setSelectDate] = useState(currentDate);
 	return (
-		<div className="flex gap-10 sm:divide-x justify-center sm:w-1/2 mx-auto  h-screen items-center sm:flex-row flex-col" style={{margin:"10vh 0vw 0vh 10vw "}}>
+		<div className="flex gap-10 sm:divide-x justify-center sm:w-1/2 mx-auto   items-center sm:flex-row flex-col" style={{height:"60vh",width:"35vw",margin:"25vh 0vw 5vh 7vw ",border:"2px solid black",backgroundColor:"white"}}>
 			<div className="w-96 h-96 ">
 				<div className="flex justify-between items-center">
 					<h1 className="select-none font-semibold">
@@ -85,12 +85,6 @@ export default function Calendar() {
 						}
 					)}
 				</div>
-			</div>
-			<div className="h-96 w-96 sm:px-5">
-				<h1 className=" font-semibold">
-					Schedule for {selectDate.toDate().toDateString()}
-				</h1>
-				<p className="text-gray-400">No meetings for today.</p>
 			</div>
 		</div>
 	);

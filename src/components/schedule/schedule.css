@@ -17,7 +17,7 @@
   text-align: center;
   background: #ffffff;
 }
-.img_dis img:hover{
+.sch_img_dis img:hover{
   transform: scale(1.02);
 }
 
@@ -47,11 +47,10 @@
   text-shadow: 1px 1px #fff;
   font-weight: 700;
   font-size: 12pt;
-  height: 2vh;
-  width: 1vw;
+  height: 4vh;
+  width: 2vw;
   background-color: #E3CAF9;
-  margin: 10vh 0vh 0vh 5.75vw;
-  
+  margin: 10vh 0vh 0vh 10.5vw;
 }
 .sch_img:hover::before {
   border-color: #000000;

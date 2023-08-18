@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { storage, db } from "../../config/firebase";
 
 import {
-  getDocs,
+  setDoc,
   collection,
   addDoc,
   deleteDoc,
@@ -32,7 +32,12 @@ const EventInput = () => {
   const [file, setFile] = useState("");
   const [imageUrls, setImageUrls] = useState([]);
 
-  const Ref = collection(db, "event");
+  const onSubmit = () => {
+    handleUpload();
+  };
+
+  // const Ref = collection(db, "event",eventName);
+  // await setDoc(Ref,`{eventname}`);
 
   useEffect(() => {
     if (imageUrls.length > 0) {
@@ -44,7 +49,7 @@ const EventInput = () => {
     try {
       const EventStart = new Date(event_start);
       const EventEnd = new Date(event_end);
-      await addDoc(Ref, {
+      await setDoc(doc(db, "event",eventName), {
         Event_name: eventName,
         Event_brief: eventBrief,
         Event_organizor: eventorganizor,
@@ -70,13 +75,9 @@ const EventInput = () => {
     });
   };
 
-  const onSubmit = () => {
-    handleUpload();
-  };
-
   return (
     <div
-      style={{width: "100vw", height: "100vh", backgroundColor: "#EDE7F1" }}
+      style={{ width: "100vw", height: "100vh", backgroundColor: "#EDE7F1" }}
     >
       <div className="header">
         <Header />
@@ -93,7 +94,7 @@ const EventInput = () => {
           width: "80vw",
           margin: "4vh 0vw auto 20vw",
           position: "relative",
-          top:"22vh",
+          top: "22vh",
         }}
       >
         <div className="input1">
@@ -158,7 +159,7 @@ const EventInput = () => {
           </div>
         </div>
 
-        <div className="input2" style={{marginLeft:"20vw"}}>
+        <div className="input2" style={{ marginLeft: "20vw" }}>
           <div
             className="img_dis"
             style={{

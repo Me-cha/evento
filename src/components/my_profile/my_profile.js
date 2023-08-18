@@ -1,5 +1,5 @@
 import { db } from "../../config/firebase";
-import { collection, query, where, getDocs } from "firebase/firestore";
+import { collection, query, where, getDocs,documentId, FieldPath } from "firebase/firestore";
 import React, { useState, useEffect } from "react";
 import "./my_profile.css";
 import Header from '../header/header';
@@ -10,58 +10,42 @@ const ProfileScreen = () => {
   const [lastName, setLastName] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
   const [email, setEmail] = useState("");
-  const [designation, setDesignation] = useState("");
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [username, setuserName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
   useEffect(() => {
-    const fetchImageUrl = async () => {
+    const fetchEventData = async () => {
       try {
-        const usersCollectionRef = collection(db, "user");
-        const usernameQuery = query(
-          usersCollectionRef,
-          where("username", "==", "nosh123")
+        const eventsCollectionRef = collection(db, "user");
+        const eventQuery = query(
+          eventsCollectionRef,
+          where(documentId(), "==", "new_id")
         );
-        const querySnapshot = await getDocs(usernameQuery);
+        const querySnapshot = await getDocs(eventQuery);
         if (!querySnapshot.empty) {
           const userData = querySnapshot.docs[0].data();
-          const imageUrl = userData.profile_image;
+          const imageUrl = userData.profile_pic;
+          const firstname = userData.firstName;
+          const lastname = userData.lastName;
+          const moile = userData.mobile;
+          const email = userData.email;
+          const username = userData.username;
+
           setImageUrl(imageUrl);
+          setFirstName(firstname);
+          setLastName(lastname);
+          setMobileNumber(moile);
+          setEmail(email);
+          setuserName(username);
         }
       } catch (error) {
-        console.error("Error retrieving image URL:", error);
+        console.error("Error retrieving event data:", error);
       }
     };
 
-    fetchImageUrl();
-
-    // Clean up the Firestore listener when the component is unmounted
-    return () => {
-      // No listener to clean up in this case, but you can add it if needed
-    };
+    fetchEventData();
   }, []);
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    setSelectedImage(URL.createObjectURL(file));
-  };
-
-  const handleUpdate = (e) => {
-    e.preventDefault();
-    // Perform update logic here
-    console.log("Profile updated:", {
-      firstName,
-      lastName,
-      mobileNumber,
-      email,
-      designation,
-    });
-  };
-
-  const handleLogout = () => {
-    // Perform logout logic here
-    console.log("Logged out");
-  };
 
   return (
     <div className="my_profile" style={{ margin: "0vh auto ",width:"100vw",height:"100vh" }}>
@@ -127,41 +111,17 @@ const ProfileScreen = () => {
             fontFamily: "Roboto",
             padding: "4px",
             fontSize: "1.5em",
-            color: "#182EF2",
+            color: "#252525",
           }}
         >
           Edit
         </a>
         <form
           style={{ position: "relative", marginBottom: "10px" }}
-          onSubmit={handleUpdate}
         >
           <div>
             <input
-              placeholder="First Name"
-              style={{
-                textAlign: "center",
-                fontWeight: "bold",
-                marginBottom: "20px",
-                margin: "30px auto",
-                alignItems: "50%",
-                width: "30vw",
-                height: "5vh",
-                display: "block",
-                fontFamily: "Roboto",
-                fontSize: "17px",
-                backgroundColor: "#CDC0D9",
-                borderRadius: "20px",
-                color: "182EF2",
-              }}
-              type="text"
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-            />
-          </div>
-          <div>
-            <input
-              placeholder="Last Name"
               style={{
                 textAlign: "center",
                 fontWeight: "bold",
@@ -175,16 +135,14 @@ const ProfileScreen = () => {
                 fontSize: "17px",
                 backgroundColor: "#CDC0D9",
                 borderRadius: "20px",
-                color: "182EF2",
+                color: "#252525",
               }}
               type="text"
+            />
+          </div>
+          <div>
+            <input
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
-            />
-          </div>
-          <div>
-            <input
-              placeholder="Mobile Number"
               style={{
                 textAlign: "center",
                 fontWeight: "bold",
@@ -198,16 +156,14 @@ const ProfileScreen = () => {
                 fontSize: "17px",
                 backgroundColor: "#CDC0D9",
                 borderRadius: "20px",
-                color: "182EF2",
+                color: "#252525",
               }}
               type="text"
-              value={mobileNumber}
-              onChange={(e) => setMobileNumber(e.target.value)}
             />
           </div>
           <div>
             <input
-              placeholder="Email"
+              value={mobileNumber}
               style={{
                 textAlign: "center",
                 fontWeight: "bold",
@@ -221,11 +177,30 @@ const ProfileScreen = () => {
                 fontSize: "17px",
                 backgroundColor: "#CDC0D9",
                 borderRadius: "20px",
-                color: "182EF2",
+                color: "#252525",
+              }}
+              type="text"
+            />
+          </div>
+          <div>
+            <input
+              value={email}
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                marginBottom: "20px",
+                margin: "30px auto",
+                alignItems: "50%",
+                width: "30vw",
+                height: "5vh",
+                display: "block",
+                fontFamily: "Roboto",
+                fontSize: "17px",
+                backgroundColor: "#CDC0D9",
+                borderRadius: "20px",
+                color: "#252525",
               }}
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div className="Myprofile">
@@ -233,7 +208,7 @@ const ProfileScreen = () => {
           </div>
           <div>
             <input
-              placeholder="Designation"
+              value={username}
               style={{
                 textAlign: "center",
                 fontWeight: "bold",
@@ -247,11 +222,9 @@ const ProfileScreen = () => {
                 fontSize: "17px",
                 backgroundColor: "#CDC0D9",
                 borderRadius: "20px",
-                color: "182EF2",
+                color: "#252525",
               }}
               type="text"
-              value={designation}
-              onChange={(e) => setDesignation(e.target.value)}
             />
           </div>
 
