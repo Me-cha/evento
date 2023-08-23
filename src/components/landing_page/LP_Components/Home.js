@@ -1,7 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate=useNavigate();
   return (
     <div className="home-container">
       <Navbar />
@@ -18,7 +20,7 @@ const Home = () => {
           </h2>
           
           
-          <button className="secondary-button">
+          <button onClick={()=>{navigate("/users")}} className="secondary-button">
             Get Started 
           </button>
         </div>

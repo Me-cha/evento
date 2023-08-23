@@ -1,5 +1,6 @@
 import "./header.css";
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom'; 
 import { db } from "../../config/firebase";
 import { collection, query, where, getDocs, documentId } from "firebase/firestore";
 
@@ -73,14 +74,18 @@ const Header = () => {
                     fontSize:"23px",
                   }}
                 >
-                  <li style={{ margin: "1em" }}>Home</li>
+                  <Link to="/" style={{ margin: '1em' }}>Home</Link>
+                  <Link to="/calendar" style={{ margin: '1em' }}>Calendar</Link>
+                  <Link to="/aboutus" style={{ margin: '1em' }}>About Us</Link>
+                  <Link to="/attendevents" style={{ margin: '1em' }}>Events</Link>
+                  {/* <li style={{ margin: "1em" }}>Home</li>
                   <li style={{ margin: "1em" }}>Calendar</li>
                   <li style={{ margin: "1em" }}>About Us</li>
-                  <li style={{ margin: "1em" }}>Events</li>
+                  <li style={{ margin: "1em" }}>Events</li> */}
                 </ul>
               </nav>
 
-              <div className="profile_icon">
+              <Link to="/myprofile" className="profile_icon">
                 {imageUrl ? (
                   <img
                     src={imageUrl}
@@ -90,6 +95,7 @@ const Header = () => {
                       maxHeight: "8vh",
                       margin: "3vh 0vw 3vh 1vw",
                     }}
+                    alt=""
                   />
                 ) : (
                   <img
@@ -100,9 +106,10 @@ const Header = () => {
                       maxHeight: "8vh",
                       margin: "3vh 0vw 3vh 1vw",
                     }}
+                    alt=""
                   />
                 )}
-              </div>
+              </Link>
           </div>
         </header>
       </div>
