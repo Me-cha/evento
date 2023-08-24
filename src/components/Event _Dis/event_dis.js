@@ -64,6 +64,7 @@ function Event_dis() {
         className="body_view_event"
         style={{ display: "flex", flexDirection: "row" ,height:"70vh"}}
       >
+      
         <Calendar />
         <div
           className="event_list"

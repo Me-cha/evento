@@ -19,6 +19,7 @@ import {
 import { v4 } from "uuid";
 import Header from '../header/header';
 import { SpaRounded } from "@mui/icons-material";
+import Calendar from "../Calendar/Calendar";
 
 
 function Schedule() {
@@ -87,6 +88,7 @@ function Schedule() {
       <div className="sch_box">
         <p style={{ margin: "25px" }}>SCHEDULE</p>
       </div>
+      <Calendar/>
       <div
         className="schedule"
         style={{ display: "flex", flexDirection: "column" ,marginTop:'15vh'}}
