@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { db } from "../../config/firebase";
 import { collection, query, getDocs } from "firebase/firestore";
 import Header from "../header/header";
+import ShareBtn from "../share/share";
 import Calendar from "../Calendar/Calendar";
 import "./event_dis.css";
 
@@ -55,13 +56,13 @@ function Event_dis() {
       <div className="header">
         <Header />
       </div>
-      <div className="box" style={{ display: "flex", flexDirection: "row" }}>
+      <div className="box" style={{ display: "flex", flexDirection: "row"}}>
         <h3 style={{ margin: "4vh 0vw 0vh 15vw" }}>CALENDAR</h3>
         <h3 style={{ margin: "4vh 0vw 0vh 40vw" }}>EVENTS</h3>
       </div>
       <div
         className="body_view_event"
-        style={{ display: "flex", flexDirection: "row" }}
+        style={{ display: "flex", flexDirection: "row" ,height:"70vh"}}
       >
         <Calendar />
         <div
@@ -75,7 +76,7 @@ function Event_dis() {
             width: "35vw",
             backgroundColor: "#E3D4EF",
             overflow: "auto", // Add overflow property for scrolling
-            borderRadius: "10px", 
+            borderRadius: "10px",
             padding: "10px",
           }}
         >
@@ -107,17 +108,19 @@ function Event_dis() {
                   }}
                   alt="Event"
                 />
-                ) : (
-                  <img
-                    src="https://firebasestorage.googleapis.com/v0/b/event-o-4e544.appspot.com/o/event%2Fdownload.png?alt=media&token=97505771-db30-410d-80af-a6ff564e1066"
-                    style={{ display: "unset",
+              ) : (
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/event-o-4e544.appspot.com/o/event%2Fdownload.png?alt=media&token=97505771-db30-410d-80af-a6ff564e1066"
+                  style={{
+                    display: "unset",
                     margin: "auto 2vw",
                     width: "15vh",
                     height: "14vh",
                     border: "1px solid black",
                     borderRadius: "10px",
-                    objectFit: "fit", }}
-                  />
+                    objectFit: "fit",
+                  }}
+                />
               )}
               <div
                 style={{
@@ -164,6 +167,8 @@ function Event_dis() {
             </button>
           ))}
         </div>
+      </div>
+      <div className="sharebtn"><ShareBtn />
       </div>
     </div>
   );
