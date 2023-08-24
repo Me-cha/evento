@@ -13,6 +13,7 @@ import Home from "./components/auth/Home/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import  Calendar  from "./components/Calendar/Calendar";
 import LandingPage from "./components/landing_page/LandingPage";
+import View_event from "./components/view_event/View_event";
 
 function App() {
   console.log("trial log");
@@ -35,11 +36,12 @@ function App() {
       {/* <Event_dis/> */}
       {/* <Image /> */}
      {/*  <ProfileScreen/> */}
-       <Schedule /> 
+       {/* <Schedule />  */}
       {/* <EventInput /> */}
       {/* <Event_dis/> */}
+      <View_event/>
       {/* <Image /> */}
-       <ProfileScreen/>
+       {/* <ProfileScreen/> */}
       {/* <Schedule /> */}
     </div>
   );
