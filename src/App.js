@@ -2,7 +2,7 @@ import "./App.css";
 import Header from "./components/header/header";
 import EventInput from "./components/event/event";
 import Schedule from "./components/schedule/schedule";
-import Sharebutton from "./components/share/share";
+import ShareBtn from "./components/share/share";
 import Image from "./components/image/image";
 import Event_dis from "./components/Event _Dis/event_dis";
 import ProfileScreen from "./components/my_profile/my_profile";
@@ -31,7 +31,7 @@ function App() {
       {/* <Calendar/> */}
       {/* <LandingPage/> */}
       {/* <AboutUsScreen/> */}
-      {/* <Sharebutton /> */}
+      <ShareBtn />
      {/* <EventInput />*/}
       {/* <Event_dis/> */}
       {/* <Image /> */}
@@ -39,7 +39,7 @@ function App() {
        {/* <Schedule />  */}
       {/* <EventInput /> */}
       {/* <Event_dis/> */}
-      <View_event/>
+      {/* <View_event/> */}
       {/* <Image /> */}
        {/* <ProfileScreen/> */}
       {/* <Schedule /> */}

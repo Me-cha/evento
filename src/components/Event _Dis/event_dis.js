@@ -75,7 +75,7 @@ function Event_dis() {
             width: "35vw",
             backgroundColor: "#E3D4EF",
             overflow: "auto", // Add overflow property for scrolling
-            borderRadius: "10px", // Apply the border radius here
+            borderRadius: "10px", 
             padding: "10px",
           }}
         >
