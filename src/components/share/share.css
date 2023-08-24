@@ -79,4 +79,8 @@ body.active-modal {
     position: absolute;
     right: 0vw;
   }
+
+  .copyBtn:hover{
+    transform: scale(1.05);
+  }
   

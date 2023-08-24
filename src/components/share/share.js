@@ -81,7 +81,7 @@ export default function ShareBtn() {
     setcopytxt(true)
     navigator.clipboard.writeText(eventURL)
     setTimeout(() => {
-      {setcopytxt(true)}
+      {setcopytxt(false)}
     }, 1000);
   }
 
@@ -217,11 +217,13 @@ export default function ShareBtn() {
             >
               </input>
               <button
+              className="copyBtn"
               onClick={copyText}
                 style={{
                   position:"absolute",
                   height: "4.5vh",
-                  width: "4vw",
+                  minWidth: "5vw",
+                  padding:"auto 2vw",
                   backgroundColor: "#3EA6FF",
                   color: "black",
                   borderRadius: "20px",
@@ -229,7 +231,7 @@ export default function ShareBtn() {
                   right:"0px"
                 }}
               >
-                copy
+                {copytxt ? "Copied!!" : "Copy"}
               </button>
           </div>
         </div>
