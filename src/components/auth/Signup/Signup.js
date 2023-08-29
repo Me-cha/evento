@@ -1,31 +1,118 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Components from "./Components";
+//import firebase from 'firebase/compat/app'
 import "react-phone-input-2/lib/style.css";
 import CallOtp from "./CallOtp";
-
+import { toast, Toaster } from "react-hot-toast";
+import { db } from "../../../config/firebase";
+import { getDoc, collection, getDocs, setDoc, doc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
-  const [signIn, toggle] = React.useState(true);
-  const [errorMsg, setErrorMsg] = useState("");
-  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+  console.log(db);
+  const navigate = useNavigate(); 
+  const userCollectionRef = collection(db, "user");
+  const [users,setUsers]=useState([])
+
+  const [signIn, toggle] = useState(true);
   const [values, setValues] = useState({
     firstName: "",
     lastName: "",
     mobile: "",
     email: "",
-    otp: "",
+    username: ""
   });
+  
+  const [inputValue, setInputValue] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+  //const custom_id=values.mobile;
+  
+  useEffect(() => {
+    const getUsers = async () => {
+      const data = await getDocs(userCollectionRef);
+      setUsers(data.docs.map((doc) => ({...doc.data(), id:doc.id})));
+    }; 
+
+    getUsers()
+  }, []);
+
+  const CheckUser = (name,mail)=>{
+
+    users.map((user) =>{
+      var checkUsername=user.username
+      var checkEmail=user.email
+      if (checkUsername===name){
+        setSubmitButtonDisabled(!submitButtonDisabled)
+        toast.error("Username is already taken!")
+      }
+      else if(checkEmail===mail){
+        setSubmitButtonDisabled(!submitButtonDisabled)
+        toast.error("Email is already taken!")
+      }
+    })
+
+  }
+
+  //const docRef = doc(db,"user",values.mobile);
+  
+
+ 
+
+  const SendData = async ()=>{
+    const docSnap = await getDoc(doc(db,"user",values.mobile));
+    if (docSnap.exists()) {
+      //console.log("Document data:", docSnap.data());
+      toast.error("Mobile Number Already Exists!");
+      toggle(true);
+    } 
+
+    else if(submitButtonDisabled===true){
+        //CheckUser();
+    }
+    else
+    {
+      await setDoc (doc(db,"user",values.mobile), 
+      { 
+        firstName: values.firstName,
+        lastName:values.lastName,
+        mobile: Number(values.mobile),
+        email: values.email,
+        username: values.username 
+      });
+    }
+
+  }
 
   const handleSubmission = () => {
     if (
-      !values.firsName ||
+      !values.firstName ||
       !values.lastName ||
       !values.email ||
-      !values.mobile
+      !values.mobile ||
+      !values.username
     ) {
       setErrorMsg("Fill all fields");
-      return;
+      toast.error("Fill all fields");
+      setSubmitButtonDisabled(!submitButtonDisabled)
+      
     }
+    else{
+      
+      SendData();
+      setSubmitButtonDisabled(!submitButtonDisabled);
+      //navigate("/");
+      setValues({
+        firstName: "",
+        lastName: "",
+        mobile: "",
+        email: "",
+        username: ""});
+      toggle(true);
+      //console.log(submitButtonDisabled);
+
+    }
+    
   };
 
   return (
@@ -36,37 +123,46 @@ const Signup = () => {
           <Components.Title>Create Account</Components.Title>
           <Components.Input
             type="text"
+            name="firstname"
+            value={values.firstName}
             onChange={(event) =>
-              setValues((prev) => ({ ...prev, firstName: event.target.value }))
-            }
-            placeholder="Name"
+            setValues((prev) => ({ ...prev, firstName: event.target.value }))}
+            placeholder="First Name"
           />
           <Components.Input
             type="text"
+            name="lastName"
+            value={values.lastName}
             onChange={(event) =>
-              setValues((prev) => ({ ...prev, lastName: event.target.value }))
-            }
-            placeholder="Name"
+            setValues((prev) => ({ ...prev, lastName: event.target.value }))}
+            placeholder="Last Name"
           />
           <Components.Input
             type="text"
+            name="mobile"
+            value={values.mobile}
             onChange={(event) =>
-              setValues((prev) => ({ ...prev, mobile: event.target.value }))
-            }
+            setValues((prev) => ({ ...prev, mobile: event.target.value }))}
             placeholder="Mobile Number"
           />
           <Components.Input
             type="email"
+            name="email"
+            value={values.email}
             onChange={(event) =>
-              setValues((prev) => ({ ...prev, email: event.target.value }))
-            }
+            setValues((prev) => ({ ...prev, email: event.target.value }))}
             placeholder="Email"
           />
+          <Components.Input
+            type="text"
+            name="username"
+            value={values.username}
+            onChange={(event) =>
+            setValues((prev) => ({ ...prev, username: event.target.value }))}
+            placeholder="Username"
+          />
 
-          <Components.Button
-            onClick={handleSubmission}
-            disabled={submitButtonDisabled}
-          >
+          <Components.Button onClick={handleSubmission} disabled={submitButtonDisabled}>
             Sign Up
           </Components.Button>
         </Components.Form>
