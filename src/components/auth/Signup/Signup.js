@@ -8,12 +8,14 @@ import { db } from "../../../config/firebase";
 import { getDoc, collection, getDocs, setDoc, doc } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 
+var custom_id;
+
 const Signup = () => {
   console.log(db);
   const navigate = useNavigate(); 
   const userCollectionRef = collection(db, "user");
   const [users,setUsers]=useState([])
-
+  
   const [signIn, toggle] = useState(true);
   const [values, setValues] = useState({
     firstName: "",
@@ -26,7 +28,7 @@ const Signup = () => {
   const [inputValue, setInputValue] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
-  //const custom_id=values.mobile;
+  
   
   useEffect(() => {
     const getUsers = async () => {
@@ -55,11 +57,13 @@ const Signup = () => {
   }
 
   //const docRef = doc(db,"user",values.mobile);
+  //setCustom_id(toString(values.mobile)) ;
+  //console.log(custom_id);
+  //console.log(values.mobile);
+  //const [custom_id,setCustom_id]=useState("")
   
-
- 
-
   const SendData = async ()=>{
+    
     const docSnap = await getDoc(doc(db,"user",values.mobile));
     if (docSnap.exists()) {
       //console.log("Document data:", docSnap.data());
@@ -112,7 +116,8 @@ const Signup = () => {
       //console.log(submitButtonDisabled);
 
     }
-    
+    var custom_id=values.mobile;
+    console.log(custom_id)
   };
 
   return (
@@ -202,4 +207,5 @@ const Signup = () => {
   );
 };
 
+export { custom_id };
 export default Signup;
