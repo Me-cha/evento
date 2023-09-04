@@ -12,6 +12,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import  Calendar  from "./components/Calendar/Calendar";
 import LandingPage from "./components/landing_page/LandingPage";
 import View_event from "./components/view_event/View_event";
+import EventInput from "./components/event/event";
 
 function App() {
   console.log("trial log");
