@@ -1,6 +1,5 @@
 import "./App.css";
 import Header from "./components/header/header";
-import EventInput from "./components/event/event";
 import Schedule from "./components/schedule/schedule";
 import Image from "./components/image/image";
 import Event_dis from "./components/Event _Dis/event_dis";
