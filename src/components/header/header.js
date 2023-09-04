@@ -34,7 +34,7 @@ const Header = () => {
   }, []);
 
   return (
-    <div style={{ height: "0vh", maxWidth: "100vw", position: "absolute",fontSize:"25px" }}>
+    <div style={{ height: "0vh", maxWidth: "100vw", position: "relative",fontSize:"25px" }}>
       <div
         id="empty_space_header"
         style={{

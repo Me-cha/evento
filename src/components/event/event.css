@@ -1,4 +1,15 @@
-/* screen TITLE BOX */
+.header_event_inp #empty_space_header {
+  display: none !important;
+}
+
+form input{
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+
+/* 
+//screen TITLE BOX 
 .box {
   border: 1.5px solid rgb(0, 0, 0);
   position: relative;
@@ -13,8 +24,7 @@
   text-align: center;
   background: #ffffff;
 }
-
-/* Event screen css */
+//Event screen css 
 .input1 {
   padding-left: 5%;
 
@@ -23,7 +33,7 @@
   align-items: center;
 }
 
-/* event IMGAGE upload */
+//event IMGAGE upload 
 .eventIMG{
   color: transparent;
 }
@@ -58,4 +68,4 @@
 
 .img_dis img:hover{
   transform: scale(1.02);
-}
+} */
