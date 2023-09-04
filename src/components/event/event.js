@@ -39,7 +39,7 @@ function EventInput() {
         }}
       >
         <div style={{ fontSize: "20px", fontWeight: "bolder" }}>
-          Event Details
+          Basic Information
         </div>
         <div>
           <div>
