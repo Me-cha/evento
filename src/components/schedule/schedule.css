@@ -1,3 +1,7 @@
+.header_schedule #empty_space_header {
+  display: none !important;
+}
+
 .schBody{
   padding-top: 15vh;
   margin:-2%;

@@ -75,7 +75,7 @@ function Schedule() {
 
   return (
     <div>
-      <div className="header"
+      <div className="header_schedule"
       style={{
         maxWidth: "20vw",
         height: "10vh",
@@ -86,7 +86,7 @@ function Schedule() {
         <Header />
       </div>
       <div className="sch_box">
-        <p style={{ margin: "25px" }}>SCHEDULE</p>
+        <p style={{ margin: "25px" }}>DevFest2022</p>
       </div>
       <Calendar/>
       <div
