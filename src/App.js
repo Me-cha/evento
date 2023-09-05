@@ -35,13 +35,13 @@ function App() {
       {/* <Image /> */}
      {/*  <ProfileScreen/> */}
        {/* <Schedule />  */}
-       <EventInput />
+       {/* <EventInput /> */}
       {/* <EventInput /> */}
       {/* <Event_dis/> */}
       {/* <View_event/> */}
       {/* <Image /> */}
        {/* <ProfileScreen/> */}
-      {/* <Schedule /> */}
+      <Schedule />
     </div>
   );
 }

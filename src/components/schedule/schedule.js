@@ -27,6 +27,10 @@ function Schedule() {
   const [imageUrls, setImageUrls] = useState([]);
   const [schedulde_start, setscheduldeStart] = useState("");
   const [schedulde_end, setscheduldeEnd] = useState("");
+  const [startDate, setStartDate] = useState("");
+  const [startTime, setStartTime] = useState("");
+  const [endDate, setEndDate] = useState("");
+  const [endTime, setEndTime] = useState("");
   const [scheduletitle, setscheduletitle] = useState("");
   const [Venue, setVenue] = useState("");
   const [notification, setnotification] = useState(false);
@@ -106,33 +110,14 @@ function Schedule() {
           >
             <div style={{ marginBottom: "10px" }}>
               <input
-                placeholder="SCHEDULE TITLE"
+                placeholder="SCHEDULE 1"
                 style={{
                   
                 }}
                 onChange={(e) => setscheduletitle(e.target.value)}
               />
             </div>
-            <div className="sch_img_dis">
-              {file && (
-                <img
-                  src={URL.createObjectURL(file)}
-                  alt="user-uploaded media"
-                  style={{
-                   
-                  }}
-                />
-              )}
-                <input
-                  type="file"
-                  className="sch_img"
-                  style={{
-                   
-                  }}
-                  onChange={(e) => setFile(e.target.files[0])}
-                  accept="image/, video/"
-                />
-            </div>
+           
           </div>
           <div
             className="schBody-right"
@@ -141,48 +126,90 @@ function Schedule() {
             }}
           >
             <div>
-              <label>DATE-TIME</label>
+           
+              <label>Start Date</label>
+            
+            <input
+              placeholder=" Start Date"
+              type="date"
+              style={{
+                marginleft:"60%"
+              }}
+              value={startDate}
+              onChange={(e) => setStartDate(e.target.value)}
+            />
 
-              <div>
-                <label style={{ fontSize: "13px" }}> START : </label>
-                <input
-                  type="datetime-local"
-                  style={{ marginBottom: "10px" }}
-                  onChange={(e) => setscheduldeStart(e.target.value)}
-                />
-              </div>
+           
+              <label>Start Time</label>
+            
+            <input
+              placeholder=" Start Time"
+              type="time"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}
+            />
 
-              <div>
-                <label style={{ fontSize: "13px" }}> END : </label>
-                <input
-                  type="datetime-local"
-                  style={{ marginBottom: "10px" }}
-                  onChange={(e) => setscheduldeEnd(e.target.value)}
-                />
-              </div>
-            </div>
+            
+              <label>End Date</label>
+            
+            <input
+              placeholder=" End Date"
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
+            />
 
+            
+              <label>End Time</label>
+            
+            <input
+              placeholder="End Time"
+              type="time"
+              style={{
+                        marginleft:"40%",
+              }}
+              value={endTime}
+              onChange={(e) => setEndTime(e.target.value)}
+            />
+          </div>
+        
+            
             <div className="place">
-              <label>Venue:</label>
+              <label>Name </label>
               <input
                 type="text"
-                style={{ marginBottom: "10px" }}
-                placeholder="Enter venue here"
+                style={{ 
+                          
+                 }}
+                placeholder="..."
                 onChange={(e) => setVenue(e.target.value)}
               />
             </div>
 
-            <div className="notification">
-              <label>
-                <input
-                  type="checkbox"
-                  style={{}}
-                  onChange={(e) => setnotification(e.target.checked)}
-                />
-                NOTIFICATIONS
-              </label>
-            </div>
+            
           </div>
+        </div>
+
+        <div
+          className="tb"
+          style={{ display: "flex", justifyContent: "center" , marginTop:"-1%"}}
+        >
+          <textarea
+            placeholder=" Location"
+            rows={"10"}
+            cols={"60"}
+            style={{ 
+                      marginLeft:"40%",
+                      marginTop:"-28.5%",
+                      borderRadius:"10px",
+                      width:"48vw",
+                      height:"10vh",
+                      padding:"10px"
+                      
+              
+            }}
+            onChange={(e) => setdescription(e.target.value)}
+          />
         </div>
         <div
           className="tb"
@@ -192,28 +219,22 @@ function Schedule() {
             placeholder=" Schedule Brief..."
             rows={"10"}
             cols={"60"}
-            style={{
+            style={{ 
+                      marginLeft:"40%",
+                      marginTop:"-22%",
+                      borderRadius:"10px",
+                      width:"48vw",
+                      height:"15vh",
+                      border_radius:"15px",
+                      resize:"none",
+                      padding:"10px",
+                      
               
             }}
             onChange={(e) => setdescription(e.target.value)}
           />
         </div>
 
-        <div
-          className="savebutton"
-          style={{
-           
-          }}
-        >
-          <button
-            onClick={onSubmit}
-            style={{
-             
-            }}
-          >
-            SAVE
-          </button>
-        </div>
       </div>
     </div>
   );
