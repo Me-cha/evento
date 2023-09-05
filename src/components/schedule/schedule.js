@@ -77,10 +77,7 @@ function Schedule() {
     <div>
       <div className="header_schedule"
       style={{
-        maxWidth: "20vw",
-        height: "10vh",
-        backgroundColor: "#EDE7F1",
-        marginBottom: "20px",
+      
       }}>
         
         <Header />
@@ -88,40 +85,30 @@ function Schedule() {
       <div className="sch_box">
         <p style={{ margin: "25px" }}>DevFest2022</p>
       </div>
+      <div className="calendar_sch" style={{ }}>
       <Calendar/>
+      </div>
       <div
         className="schedule"
-        style={{ display: "flex", flexDirection: "column" ,marginTop:'15vh'}}
+        style={{ }}
       >
         <div
           className="schBody"
           style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-around",
-            alignItems: "center",
+           
           }}
         >
           <div
             className="schBody-left"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              height: "35vh",
+              
             }}
           >
             <div style={{ marginBottom: "10px" }}>
               <input
                 placeholder="SCHEDULE TITLE"
                 style={{
-                  border: "1px solid #E3CAF9",
-                  borderRadius:"10px",
-                  background: "#EDE7F1",
-                  fontWeight: "bolder",
-                  fontSize: "18px",
-                  fontFamily: "Roboto",
-                  textAlign: "center",
+                  
                 }}
                 onChange={(e) => setscheduletitle(e.target.value)}
               />
@@ -132,13 +119,7 @@ function Schedule() {
                   src={URL.createObjectURL(file)}
                   alt="user-uploaded media"
                   style={{
-                    position: "absolute",
-                    height: "25vh",
-                    width: "14vw",
-                    border: "1px solid #7B43AC",
-                    borderRadius: "10px",
-                    objectFit: "cover",
-                    marginLeft:"2.5vw"
+                   
                   }}
                 />
               )}
@@ -146,10 +127,7 @@ function Schedule() {
                   type="file"
                   className="sch_img"
                   style={{
-                    height: "25vh",
-                    width: "14vw",
-                    objectFit: "cover",
-                    marginLeft:"5vw"
+                   
                   }}
                   onChange={(e) => setFile(e.target.files[0])}
                   accept="image/, video/"
@@ -159,10 +137,7 @@ function Schedule() {
           <div
             className="schBody-right"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "space around",
-              height: "35vh",
+             
             }}
           >
             <div>
@@ -218,15 +193,7 @@ function Schedule() {
             rows={"10"}
             cols={"60"}
             style={{
-              borderRadius: "10px",
-              box_sizing: "border-box",
-              width: "65vw",
-              height: "20vh",
-              background: "#FFFFFF",
-              border: "1px solid #000000",
-              border_radius: "15px",
-              resize: "none",
-              margin:"5vh auto auto auto"
+              
             }}
             onChange={(e) => setdescription(e.target.value)}
           />
@@ -235,22 +202,13 @@ function Schedule() {
         <div
           className="savebutton"
           style={{
-            display: "flex",
-            justifyContent: "center",
-            marginTop: "10px",
+           
           }}
         >
           <button
             onClick={onSubmit}
             style={{
-              width: "130px",
-              height: "40px",
-              display: "block",
-              backgroundColor: "#7B43AC",
-              fontFamily: "Roboto",
-              fontSize: "17px",
-              borderRadius: "10px",
-              color: "#FFFFFF",
+             
             }}
           >
             SAVE
