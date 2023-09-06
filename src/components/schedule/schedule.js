@@ -124,16 +124,16 @@ function Schedule() {
               type="text"
               style={{ 
                 width:"200px",
-                fontSize:"20px",
+                fontSize:"15px",
                 marginBottom:"10px",
-                marginleft:"20px"               }}
+                }}
               placeholder="Name of Event"
               onChange={(e) => setVenue(e.target.value)}
             />
           </div>
 
 
-
+<div></div>
           <div>
               <label>Start Date</label>
             </div>
@@ -143,7 +143,8 @@ function Schedule() {
               style={{
                 marginBottom:"-10px",
                 width:"200px",
-                fontSize:"20px"
+                fontSize:"15px",
+                
               }}
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
@@ -160,7 +161,7 @@ function Schedule() {
               type="time"
               style={{
                 width:"200px",
-                marginBottom:"-30px"
+                marginBottom:"-90px"
               }}
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
@@ -174,10 +175,10 @@ function Schedule() {
               placeholder=" End Date"
               type="date"
               style={{
-                marginBottom:"50px",
+                marginBottom:"10px",
                 width:"200px",
                 fontSize:"20px",
-                marginRight:"500px"
+                marginLeft:"500px",
               }}
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
@@ -185,18 +186,19 @@ function Schedule() {
 
               <div>
                 <label>Endtime</label>
-              </div>
+              
               <input
               placeholder="End Time"
               type="time"
               style={{
                 width:"200px",
-                marginBottom:"50px"
+                marginBottom:"100px",
+                marginLeft:"500px",
               }}
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
             />
-
+            </div>
 
 
 
