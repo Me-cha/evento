@@ -17,10 +17,9 @@ import {
   list,
 } from "firebase/storage";
 import { v4 } from "uuid";
-import Header from '../header/header';
+import Header from "../header/header";
 import { SpaRounded } from "@mui/icons-material";
 import Calendar from "../Calendar/Calendar";
-
 
 function Schedule() {
   const [file, setFile] = useState("");
@@ -75,145 +74,106 @@ function Schedule() {
 
   return (
     <div>
-      <div className="header_schedule"
-      style={{
-      
-      }}>
-        
+      <div className="header_schedule" style={{}}>
         <Header />
       </div>
       <div className="sch_box">
         <p style={{ margin: "25px" }}>DevFest2022</p>
       </div>
-      <div className="calendar_sch" style={{ }}>
-      <Calendar/>
+      <div
+        className="schBody"
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        <div className="calendar_sch" style={{}}>
+          <Calendar />
+        </div>
+        <div
+          className="schBody-right"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            margin: "auto",
+          }}
+        >
+          <div style={{ marginBottom: "10px" }}>
+            <input
+              placeholder="SCHEDULE TITLE"
+              style={{}}
+              onChange={(e) => setscheduletitle(e.target.value)}
+            />
+          </div>
+          <div className="sch_img_dis">
+            {file && (
+              <img
+                src={URL.createObjectURL(file)}
+                alt="user-uploaded media"
+                style={{}}
+              />
+            )}
+            <input
+              type="file"
+              className="sch_img"
+              style={{}}
+              onChange={(e) => setFile(e.target.files[0])}
+              accept="image/, video/"
+            />
+          </div>
+
+          <div>
+            <label>DATE-TIME</label>
+
+            <div>
+              <label style={{ fontSize: "13px" }}> START : </label>
+              <input
+                type="datetime-local"
+                style={{ marginBottom: "10px" }}
+                onChange={(e) => setscheduldeStart(e.target.value)}
+              />
+            </div>
+
+            <div>
+              <label style={{ fontSize: "13px" }}> END : </label>
+              <input
+                type="datetime-local"
+                style={{ marginBottom: "10px" }}
+                onChange={(e) => setscheduldeEnd(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <div className="place">
+            <label>Venue:</label>
+            <input
+              type="text"
+              style={{ marginBottom: "10px" }}
+              placeholder="Enter venue here"
+              onChange={(e) => setVenue(e.target.value)}
+            />
+          </div>
+
+          <div className="tb" style={{}}>
+            <textarea
+              placeholder=" Schedule Brief..."
+              rows={"10"}
+              cols={"60"}
+              style={{}}
+              onChange={(e) => setdescription(e.target.value)}
+            />
+          </div>
+        </div>
       </div>
       <div
-        className="schedule"
-        style={{ }}
+        className="savebutton"
+        style={{
+          margin: "auto 50vw",
+        }}
       >
-        <div
-          className="schBody"
-          style={{
-           
-          }}
-        >
-          <div
-            className="schBody-left"
-            style={{
-              
-            }}
-          >
-            <div style={{ marginBottom: "10px" }}>
-              <input
-                placeholder="SCHEDULE TITLE"
-                style={{
-                  
-                }}
-                onChange={(e) => setscheduletitle(e.target.value)}
-              />
-            </div>
-            <div className="sch_img_dis">
-              {file && (
-                <img
-                  src={URL.createObjectURL(file)}
-                  alt="user-uploaded media"
-                  style={{
-                   
-                  }}
-                />
-              )}
-                <input
-                  type="file"
-                  className="sch_img"
-                  style={{
-                   
-                  }}
-                  onChange={(e) => setFile(e.target.files[0])}
-                  accept="image/, video/"
-                />
-            </div>
-          </div>
-          <div
-            className="schBody-right"
-            style={{
-             
-            }}
-          >
-            <div>
-              <label>DATE-TIME</label>
-
-              <div>
-                <label style={{ fontSize: "13px" }}> START : </label>
-                <input
-                  type="datetime-local"
-                  style={{ marginBottom: "10px" }}
-                  onChange={(e) => setscheduldeStart(e.target.value)}
-                />
-              </div>
-
-              <div>
-                <label style={{ fontSize: "13px" }}> END : </label>
-                <input
-                  type="datetime-local"
-                  style={{ marginBottom: "10px" }}
-                  onChange={(e) => setscheduldeEnd(e.target.value)}
-                />
-              </div>
-            </div>
-
-            <div className="place">
-              <label>Venue:</label>
-              <input
-                type="text"
-                style={{ marginBottom: "10px" }}
-                placeholder="Enter venue here"
-                onChange={(e) => setVenue(e.target.value)}
-              />
-            </div>
-
-            <div className="notification">
-              <label>
-                <input
-                  type="checkbox"
-                  style={{}}
-                  onChange={(e) => setnotification(e.target.checked)}
-                />
-                NOTIFICATIONS
-              </label>
-            </div>
-          </div>
-        </div>
-        <div
-          className="tb"
-          style={{ display: "flex", justifyContent: "center" , marginTop:"-1%"}}
-        >
-          <textarea
-            placeholder=" Schedule Brief..."
-            rows={"10"}
-            cols={"60"}
-            style={{
-              
-            }}
-            onChange={(e) => setdescription(e.target.value)}
-          />
-        </div>
-
-        <div
-          className="savebutton"
-          style={{
-           
-          }}
-        >
-          <button
-            onClick={onSubmit}
-            style={{
-             
-            }}
-          >
-            SAVE
-          </button>
-        </div>
+        <button onClick={onSubmit} style={{}}>
+          SAVE
+        </button>
       </div>
     </div>
   );
