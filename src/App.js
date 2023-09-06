@@ -1,6 +1,7 @@
 import "./App.css";
 import Header from "./components/header/header";
 import Schedule from "./components/schedule/schedule";
+import View_sch from "./components/view_schedule/View_sch";
 import Image from "./components/image/image";
 import Event_dis from "./components/Event _Dis/event_dis";
 import ProfileScreen from "./components/my_profile/my_profile";
@@ -42,6 +43,7 @@ function App() {
       {/* <Image /> */}
        {/* <ProfileScreen/> */}
       <Schedule />
+      {/* <View_sch/> */}
     </div>
   );
 }

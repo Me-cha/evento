@@ -1,0 +1,22 @@
+.header_schedule #empty_space_header {
+    display: none !important;
+  }
+  .sch_box {
+    border: 1.5px solid rgb(0, 0, 0);
+    position: absolute;
+    width: 97%;
+    height: 50px;
+    margin: 15vh auto;
+    font-family: "Outfit";
+    font-style: normal;
+    font-size: 30px;
+    line-height: 0px;
+    text-align: center;
+    background: #ffffff;
+  }
+  
+  .calendar_sch{
+    margin: 10vh 0vw;
+  }
+  
+  
