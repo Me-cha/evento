@@ -108,7 +108,7 @@ function Schedule() {
               placeholder="SCHEDULE 1"
               style={{
                 fontSize:"30px",
-                marginBottom:"-15px",
+                marginBottom:"10px",
                 width:"200px",
               }}
               onChange={(e) => setscheduletitle(e.target.value)}
@@ -123,9 +123,9 @@ function Schedule() {
             <input
               type="text"
               style={{ 
-                width:"200px",
-                fontSize:"15px",
-                marginBottom:"10px",
+                width:"750px",
+                fontSize:"25px",
+                marginBottom:"20px",
                 }}
               placeholder="Name of Event"
               onChange={(e) => setVenue(e.target.value)}
@@ -133,7 +133,7 @@ function Schedule() {
           </div>
 
 
-<div></div>
+
           <div>
               <label>Start Date</label>
             </div>
@@ -141,9 +141,9 @@ function Schedule() {
               placeholder=" Start Date"
               type="date"
               style={{
-                marginBottom:"-10px",
+                marginBottom:"300px",
                 width:"200px",
-                fontSize:"15px",
+                fontSize:"20px",
                 
               }}
               value={startDate}
@@ -153,7 +153,7 @@ function Schedule() {
 
 
 
-<div>
+            <div>
               <label>Start Time</label>
             </div>
             <input
@@ -161,84 +161,96 @@ function Schedule() {
               type="time"
               style={{
                 width:"200px",
-                marginBottom:"-90px"
+                marginBottom:"-150px"
               }}
               value={startTime}
               onChange={(e) => setStartTime(e.target.value)}
             />
               
               
-<div>
-              <label>End Date</label>
+              <div>
+              <label>EndDate</label>
             </div>
             <input
               placeholder=" End Date"
               type="date"
               style={{
-                marginBottom:"10px",
+                marginBottom:"1px",
                 width:"200px",
                 fontSize:"20px",
-                marginLeft:"500px",
+                
               }}
               value={endDate}
               onChange={(e) => setEndDate(e.target.value)}
             />
 
               <div>
-                <label>Endtime</label>
-              
-              <input
-              placeholder="End Time"
+              <label>EndTime</label>
+            </div>
+            <input
+              placeholder=" End Time"
               type="time"
               style={{
                 width:"200px",
-                marginBottom:"100px",
-                marginLeft:"500px",
+                marginBottom:"1px"
               }}
               value={endTime}
               onChange={(e) => setEndTime(e.target.value)}
+          
             />
             </div>
 
-
-
-
-
-
+            <div
+          className="tb"
+          style={{ display: "flex", justifyContent: "center" , marginTop:"-1%"}}
+        >
+          <textarea
+            placeholder=" Location..."
+            rows={"10"}
+            cols={"60"}
+            style={{
+              borderRadius: "10px",
+              box_sizing: "border-box",
+              width: "45vw",
+              height: "15vh",
+              background: "#FFFFFF",
+              border: "1px solid #000000",
+              border_radius: "15px",
+              marginTop:"1000px",
+              marginLeft:"-900px"
               
-          <div className="tb" style={{}}>
-            <textarea
-              placeholder=" Location..."
-              rows={"10"}
-              cols={"60"}
-              style={{
-                width:"800px",
-                height:"80px",
-                borderRadius:"17px",
-                marginBottom:"-5px"
-              }}
-              onChange={(e) => setdescription(e.target.value)}
-            />
-          </div>
+            }}
+            onChange={(e) => setdescription(e.target.value)}
+          />
+        </div>
 
-          <div className="tb" style={{}}>
-            <textarea
-              placeholder=" Schedule Brief..."
-              rows={"10"}
-              cols={"60"}
-              style={{
-                width:"800px",
-                height:"110px",
-                borderRadius:"17px",
-                marginBottom:"-100px"
-              }}
-              onChange={(e) => setdescription(e.target.value)}
-            />
-          </div>
+        <div
+          className="tb"
+          style={{ display: "flex", justifyContent: "center" , marginTop:"-1%"}}
+        >
+          <textarea
+            placeholder=" Schedule Brief..."
+            rows={"10"}
+            cols={"60"}
+            style={{
+              borderRadius: "10px",
+              box_sizing: "border-box",
+              width: "45vw",
+              height: "15vh",
+              background: "#FFFFFF",
+              border: "1px solid #000000",
+              border_radius: "15px",
+              marginTop:"800px",
+              marginLeft:"-900px"
+              
+            }}
+            onChange={(e) => setdescription(e.target.value)}
+          />
+        </div> 
         </div>
       </div>
      
-    </div>
+
   );
 }
 export default Schedule;
