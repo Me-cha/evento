@@ -42,8 +42,8 @@ function App() {
       {/* <View_event/> */}
       {/* <Image /> */}
        {/* <ProfileScreen/> */}
-      <Schedule />
-      {/* <View_sch/> */}
+      {/*  <Schedule />*/}
+     <View_sch/> 
     </div>
   );
 }
