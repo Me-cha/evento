@@ -38,6 +38,7 @@ function App() {
        {/* <Schedule />  */}
        {/* <EventInput /> */}
       {/* <View_event/> */}
+      {/* <View_sch/> */}
     </div>
   );
 }

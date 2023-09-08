@@ -57,8 +57,6 @@ function EventInput() {
         Event_venue: venue,
         Event_start: EventStart,
         Event_end: EventEnd,
-        // Event_start_Time: startTime,
-        // Event_end_Time: endTime,
         Event_notification: notification,
         Event_IMAGE: imageUrls[0],
       });

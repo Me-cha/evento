@@ -1,80 +1,45 @@
 import "./schedule.css";
-import React, { useState, useEffect } from "react";
-import { storage, db } from "../../config/firebase";
+import React, { useState } from "react";
+import { db } from "../../config/firebase";
 import {
-  getDocs,
   collection,
-  addDoc,
-  deleteDoc,
-  updateDoc,
   doc,
+  setDoc,
 } from "firebase/firestore";
-import {
-  ref,
-  uploadBytes,
-  getDownloadURL,
-  listAll,
-  list,
-} from "firebase/storage";
-import { v4 } from "uuid";
 import Header from "../header/header";
-import { Height, SpaRounded } from "@mui/icons-material";
 import Calendar from "../Calendar/Calendar";
-import { borderRadius } from "@mui/system";
 
 function Schedule() {
-  const [file, setFile] = useState("");
-  const [imageUrls, setImageUrls] = useState([]);
-  const [schedulde_start, setscheduldeStart] = useState("");
-  const [schedulde_end, setscheduldeEnd] = useState("");
   const [scheduletitle, setscheduletitle] = useState("");
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [startTime, setStartTime] = useState("");
-  const [endTime, setEndTime] = useState("");
   const [Venue, setVenue] = useState("");
-  const [notification, setnotification] = useState(false);
-  const [description, setdescription] = useState("");
+  const [notification, setNotification] = useState(false);
+  const [description, setDescription] = useState("");
 
-  const eventRef = doc(db, "event", "8OkkhqzX1clf3U0FoZJ5");
+  const eventRef = doc(db, "event", "d");
   const scheduleRef = collection(eventRef, "schedule");
-
-  useEffect(() => {
-    if (imageUrls.length > 0) {
-      addscheduleToDatabase();
-    }
-  }, [imageUrls]);
 
   const addscheduleToDatabase = async () => {
     try {
-      const scheduldeStart = new Date(schedulde_start);
-      const scheduldeEnd = new Date(schedulde_end);
-      await addDoc(scheduleRef, {
-        
-        schedulde_start: scheduldeStart,
-        schedulde_end: scheduldeEnd,
+      await setDoc(doc(scheduleRef,scheduletitle), {
         schedule_title: scheduletitle,
-        schedule_Notification: notification,
-        schedule_venue: Venue,
+        schedule_startDate: startDate,
+        schedule_endDate: endDate,
+        schedule_Venue: Venue,
+        schedule_notification: notification,
         schedule_description: description,
       });
+      
+      // setscheduletitle("");
+      // setStartDate("");
+      // setEndDate("");
+      // setVenue("");
+      // setNotification(false);
+      // setDescription("");
     } catch (err) {
       console.error(err);
     }
-  };
-
-  const handleUpload = () => {
-    if (file == null) return;
-    const imageRef = ref(storage, `schedule/${file.name}.${v4()}`);
-    uploadBytes(imageRef, file).then((snapshot) => {
-      getDownloadURL(snapshot.ref).then((url) => {
-        setImageUrls([url]);
-      });
-    });
-  };
-
-  const onSubmit = () => {
-    handleUpload();
   };
 
   return (
@@ -82,178 +47,166 @@ function Schedule() {
       <div className="header_schedule" style={{}}>
         <Header />
       </div>
-      <div className="sch_box">
-        <p style={{ margin: "25px" }}>DevFest2022</p>
+      <div className="sch_box" style={{ margin: "12vh 1vw 0vh" }}>
+        <p style={{ margin: "3vh auto " }}>DevFest2022</p>
       </div>
       <div
         className="schBody"
         style={{
           display: "flex",
           flexDirection: "row",
+          borderTop: "2px solid black",
+          borderBottom: "2px solid black",
+          margin: "21vh 0vw 1vh",
         }}
       >
-        <div className="calendar_sch" style={{}}>
+        <div
+          className="calendar_sch"
+          style={{
+            marginTop: "-20vh",
+            height: "50vh",
+            width: "50%",
+          }}
+        >
           <Calendar />
         </div>
+
         <div
           className="schBody-right"
           style={{
             display: "flex",
             flexDirection: "column",
-            margin: "10vw 10vh",
+            padding: "0vh 3vw",
+            height: "70vh",
+            width: "50vw",
+            borderLeft: "2px solid black",
           }}
         >
-          <div style={{ marginBottom: "10px" }}>
+          <label style={{ margin: "5vh 0vw 0vh 0vw", fontSize: "17pt" }}>
+            SCHEDULE 1
+          </label>
+
+          <div className="place">
+            <label style={{ fontSize: "25px" }}>Name</label>
+            <br />
             <input
-              placeholder="SCHEDULE 1"
+              type="text"
               style={{
-                fontSize:"30px",
-                marginTop:"220px",
-                marginBottom:"30px",
-                width:"200px",
+                width: "30vw",
+                height: "3vh",
               }}
+              value={scheduletitle}
               onChange={(e) => setscheduletitle(e.target.value)}
             />
           </div>
-          
 
-          
+          <div
+            className="SchDates"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              margin: "2vh 0vw 1vh",
+            }}
+          >
+            <div>
+              <label>Schedule Start</label>
+              <br />
+              <input
+                type="datetime-local"
+                value={startDate}
+                style={{ margin: "0vh 1vw 2vh" }}
+                onChange={(e) => setStartDate(e.target.value)}
+              />
+            </div>
 
-          <div className="place">
-            <label style={{fontsize:"25px"}}>Name: </label>
-            <input
-              type="text"
-              style={{ 
-                width:"500px",
-                fontSize:"25px",
-                // marginBottom:"180px",
-                }}
-              placeholder="Name of Event"
+            <div>
+              <label>Schedule End</label>
+              <br />
+              <input
+                type="datetime-local"
+                value={endDate}
+                style={{ margin: "0vh 1vw" }}
+                onChange={(e) => setEndDate(e.target.value)}
+              />
+            </div>
+          </div>
+
+          <label>Location</label>
+          <div
+            className="tb"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <textarea
+              placeholder="Location..."
+              rows={"10"}
+              cols={"60"}
+              style={{
+                borderRadius: "10px",
+                box_sizing: "border-box",
+                width: "40vw",
+                height: "10vh",
+                background: "#FFFFFF",
+                border: "1px solid #000000",
+                borderRadius: "15px",
+                margin: "0vh 0vw 2vh",
+                resize: "none",
+              }}
+              value={Venue}
               onChange={(e) => setVenue(e.target.value)}
             />
           </div>
 
-
-
-          <div>
-              <label>Start Date</label>
-            </div>
-            <input
-              placeholder=" Start Date"
-              type="date"
-              style={{
-                marginBottom:"300px",
-                width:"200px",
-                fontSize:"20px",
-                
-              }}
-              value={startDate}
-              onChange={(e) => setStartDate(e.target.value)}
-            />
-
-
-
-
-            <div>
-              <label>Start Time</label>
-            </div>
-            <input
-              placeholder=" Start Time"
-              type="time"
-              style={{
-                width:"200px",
-                marginBottom:"-300px"
-              }}
-              value={startTime}
-              onChange={(e) => setStartTime(e.target.value)}
-            />
-              
-              <div>
-              <label>End Date</label>
-            </div>
-            <input
-              placeholder=" End Date"
-              type="date"
-              style={{
-                marginBottom:"-100px",
-
-                width:"200px",
-                fontSize:"20px",
-                
-              }}
-              value={endDate}
-              onChange={(e) => setEndDate(e.target.value)}
-            />
-             
-
-              <div>
-              <label>EndTime</label>
-            </div>
-            <input
-              placeholder=" End Time"
-              type="time"
-              style={{
-                width:"200px",
-                marginBottom:"600px",
-                
-              }}
-              value={endTime}
-              onChange={(e) => setEndTime(e.target.value)}
-          
-            />
-            </div>
-
-            <div
-          className="tb"
-          style={{ display: "flex", justifyContent: "center" , marginTop:"-1%"}}
-        >
-          <textarea
-            placeholder=" Location..."
-            rows={"10"}
-            cols={"60"}
+          <label>About</label>
+          <div
+            className="tb"
             style={{
-              borderRadius: "10px",
-              box_sizing: "border-box",
-              width: "45vw",
-              height: "15vh",
-              background: "#FFFFFF",
-              border: "1px solid #000000",
-              border_radius: "15px",
-              marginTop:"1000px",
-              marginLeft:"-900px"
-              
+              display: "flex",
+              justifyContent: "center",
             }}
-            onChange={(e) => setdescription(e.target.value)}
-          />
-        </div>
-
-        <div
-          className="tb"
-          style={{ display: "flex", justifyContent: "center" , marginTop:"-1%"}}
-        >
-          <textarea
-            placeholder=" Schedule Brief..."
-            rows={"10"}
-            cols={"60"}
-            style={{
-              borderRadius: "10px",
-              box_sizing: "border-box",
-              width: "45vw",
-              height: "15vh",
-              background: "#FFFFFF",
-              border: "1px solid #000000",
-              border_radius: "15px",
-              marginTop:"800px",
-              marginLeft:"-900px"
-              
-            }}
-            onChange={(e) => setdescription(e.target.value)}
-          />
-        </div> 
+          >
+            <textarea
+              placeholder="Schedule Brief..."
+              rows={"10"}
+              cols={"60"}
+              style={{
+                borderRadius: "10px",
+                boxSizing: "border-box",
+                width: "40vw",
+                height: "15vh",
+                background: "#FFFFFF",
+                border: "1px solid #000000",
+                borderRadius: "15px",
+                resize: "none",
+              }}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </div>
         </div>
       </div>
-     
-
+      
+      <button
+        onClick={addscheduleToDatabase}
+        style={{
+          margin: "0vh auto",
+          width: "150px",
+          height: "50px",
+          display: "block",
+          backgroundColor: "#7B43AC",
+          fontFamily: "Roboto",
+          fontSize: "23px",
+          fontWeight: "500",
+          borderRadius: "10px",
+          color: "#FFFFFF",
+        }}
+      >
+        ADD
+      </button>
+    </div>
   );
 }
+
 export default Schedule;
