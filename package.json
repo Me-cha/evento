@@ -13,6 +13,7 @@
     "classnames": "^2.3.2",
     "dayjs": "^1.11.9",
     "firebase": "^10.0.0",
+    "npm-install-missing": "^0.1.4",
     "otp-input-react": "^0.3.0",
     "package.json": "^2.0.1",
     "postcss": "^8.4.27",
