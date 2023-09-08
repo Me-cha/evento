@@ -3,62 +3,65 @@
 }
 
 form input{
-  border: 2px solid black;
+  border: 1px solid #69717a;
   border-radius: 4px;
+  height: 5vh;
+  margin-bottom: 3vh;
 }
 
-
-/* 
-//screen TITLE BOX 
-.box {
-  border: 1.5px solid rgb(0, 0, 0);
-  position: relative;
-  width: 95%;
-  height: 8vh;
-  margin-left: 3vw;
-  top:22vh;
-  font-family: "Outfit";
-  font-style: normal;
-  font-size: 5vh;
-  line-height: 0px;
-  text-align: center;
-  background: #ffffff;
-}
-//Event screen css 
-.input1 {
-  padding-left: 5%;
-
-}
-.input2{
-  align-items: center;
+.img_dis input{
+  border: none !important;
 }
 
-//event IMGAGE upload 
-.eventIMG{
-  color: transparent;
+.EventMandatoryField label::before{
+  content: '*';
+  color: red;
 }
-.eventIMG::-webkit-file-upload-button{
-  visibility: hidden;
+
+.EventMandatoryField{
+  padding:4vh 0vw 0vh 0vw;
+  border-bottom: 2px solid black;
+  height: 42vh;
 }
+
+.EventDescription{
+  margin: 2vh 0vw;
+  border-bottom: 2px solid black;
+}
+
+form label{
+  color: #69717A;
+}
+.EventDates input{
+  width: 11vw;
+}
+
+/*event IMAGE upload */
 .eventIMG::before {
   content: '+';
   color: #000000;
-  display: inline-block;
-  border: 1px solid #999;
-  border-radius: 5px !important;
-  padding: 5px 8px !important;
+  display: inline-block; 
+  padding:0px 8px !important;
   outline: none;
   white-space: nowrap;
   user-select: none;
   cursor: pointer;
   text-shadow: 1px 1px #fff;
   font-weight: 600 !important;
-  font-size: 20pt;
-  height: 27px !important;
+  font-size: 15pt;
+  height: 30px !important;
+  width: 30px;
   text-align: center;
   background-color: #E3CAF9;
-  margin-left:4px;
 }
+
+.eventIMG{
+  color: transparent;
+}
+.eventIMG::-webkit-file-upload-button{
+  visibility: hidden;
+}
+
 .eventIMG:hover::before {
   border-color: #000000;
 }
@@ -68,4 +71,8 @@ form input{
 
 .img_dis img:hover{
   transform: scale(1.02);
-} */
+} 
+
+
+
+
