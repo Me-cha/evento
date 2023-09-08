@@ -35,7 +35,7 @@ function App() {
       {/* <Image /> */}
      {/*  <ProfileScreen/> */}
        {/* <Schedule />  */}
-       <EventInput />
+       {/* <EventInput /> */}
       {/* <View_event/> */}
     </div>
   );
