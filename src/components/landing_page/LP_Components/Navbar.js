@@ -9,6 +9,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -41,11 +42,11 @@ const Navbar = () => {
         <img src="https://firebasestorage.googleapis.com/v0/b/event-o-4e544.appspot.com/o/landingpage%2FLogo.svg?alt=media&token=377ebe24-bc83-4307-a47a-78346999cf2a" alt="" />
       </div>
       <div className="navbar-links-container">
-        <a href="">Home</a>
-        <a href="">About Us</a>
-        <a href="">Calendar</a>
-        <a href="">Events</a>
-        <a href="">Contact</a>
+        <Link to="/">Home</Link>
+        <Link to="/aboutus">About Us</Link>
+        <Link to="/calendar">Calendar</Link>
+        <Link to="/showevents">Events</Link>
+        <Link to="/contact">Contact</Link>
       </div>
       <div className="navbar-menu-container">
         <HiOutlineBars3 onClick={() => setOpenMenu(true)} />
